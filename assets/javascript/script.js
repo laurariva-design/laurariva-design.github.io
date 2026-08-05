@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
       visibile = !visibile;
-    }, 800); // Cambia stato ogni 800 millisecondi (regola il tempo come preferisci)
+    }, 600); // Cambia stato ogni 800 millisecondi (regola il tempo come preferisci)
   }
 
   // Avviamo il lampeggio automatico
