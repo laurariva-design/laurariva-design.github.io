@@ -612,6 +612,13 @@ html {
   font-weight: 700;
   margin: 0 0 20px 0;
 }
+.main-footer .footer-content .footer-title a {
+  color: inherit;
+  text-decoration: underline;
+}
+.main-footer .footer-content .footer-title a:hover {
+  opacity: 0.8;
+}
 .main-footer .footer-content .footer-subtitle {
   font-size: 16px;
   font-weight: 400;

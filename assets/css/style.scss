@@ -729,11 +729,11 @@ html {
       margin: 0 0 20px 0;
 
       a {
-        color: inherit; /* Prende il colore del testo ($light-bg) al posto del blu */
-        text-decoration: underline; /* Mantiene la sottolineatura, dello stesso colore del testo */
+        color: inherit; 
+        text-decoration: underline; 
 
         &:hover {
-          opacity: 0.8; /* (Opzionale) Feedback visivo all'hover */
+          opacity: 0.8; 
         }
       }
     }
