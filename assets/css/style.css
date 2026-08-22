@@ -1094,16 +1094,15 @@ html {
 
 .cv-page {
   padding-bottom: 0;
-  padding-top: 80px;
 }
 .cv-page .custom-portfolio-container {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 80px 20px 0 20px; /* <--- Forza 80px di spazio in alto a tutto il contenitore */
 }
 .cv-page .cv-title {
-  margin-top: 20px;
+  margin-top: 0 !important; /* Azzera il margine del titolo per usare solo quello del container */
   font-size: 56px;
   font-weight: 700;
   line-height: 1.2;
