@@ -562,22 +562,23 @@ html {
     margin-bottom: 40px;
   }
   .tools-section .tools-row {
+    justify-content: flex-start; /* Permette lo scorrimento dall'inizio */
+    overflow-x: auto; /* Abilita lo scroll orizzontale */
+    flex-wrap: nowrap; /* Impedisce di andare a capo */
+    width: 100%;
+    padding: 10px 20px; /* Un po' di aria ai lati per non tagliare le icone ai bordi */
     gap: 30px;
+    -webkit-overflow-scrolling: touch; /* Rende lo scroll fluido su iOS */
+    /* Nasconde la scrollbar antiestetica ma mantiene lo scroll attivo */
+    scrollbar-width: none; /* Firefox */
+  }
+  .tools-section .tools-row::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
   .tools-section .tool-icon {
-    width: 70px;
-    height: 70px;
-  }
-}
-@media (max-width: 480px) {
-  .tools-section .tools-row {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-  }
-  .tools-section .tool-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0; /* Impedisce alle icone di rimpicciolirsi o schiacciarsi */
   }
 }
 
