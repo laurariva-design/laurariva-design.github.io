@@ -1100,7 +1100,12 @@ html {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 120px 0 20px;
+  padding: 120px 20px 20px; /* <--- Aggiunti 20px di margine interno a destra e sinistra */
+}
+@media (max-width: 768px) {
+  .cv-page .custom-portfolio-container {
+    padding: 80px 20px 20px; /* Ridotto il margine superiore su mobile mantenendo i 20px ai lati */
+  }
 }
 .cv-page .cv-title {
   margin-top: 0;
