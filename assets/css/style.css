@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -1093,16 +1094,18 @@ html {
 }
 
 .cv-page {
+  padding-top: 80px; /* Garantisce lo stacco dalla navbar anche se questa è in position: fixed/absolute */
   padding-bottom: 0;
 }
 .cv-page .custom-portfolio-container {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 120px 20px 0 20px; /* <--- Forza 80px di spazio in alto a tutto il contenitore */
+  padding: 0 20px;
 }
 .cv-page .cv-title {
-  margin-top: 0 !important; /* Azzera il margine del titolo per usare solo quello del container */
+  margin-top: 0;
+  margin-bottom: 30px;
   font-size: 56px;
   font-weight: 700;
   line-height: 1.2;
@@ -1114,31 +1117,33 @@ html {
     font-size: 38px;
   }
 }
-.cv-page .cv-cta-container {
+
+.cv-cta-container {
   margin: 40px 0 80px;
   text-align: center;
 }
-.cv-page .cv-grid-wrapper {
+
+.cv-grid-wrapper {
   position: relative;
   width: 100%;
 }
-.cv-page .cv-grid-wrapper .row {
+.cv-grid-wrapper .row {
   position: relative;
   padding-top: 60px;
 }
 @media (max-width: 768px) {
-  .cv-page .cv-grid-wrapper .row {
+  .cv-grid-wrapper .row {
     display: flex;
     flex-direction: column;
     padding-top: 0;
   }
 }
-.cv-page .cv-grid-wrapper .cv-divider {
+.cv-grid-wrapper .cv-divider {
   padding: 0 !important;
   border: none !important;
 }
 @media (min-width: 769px) {
-  .cv-page .cv-grid-wrapper .cv-divider {
+  .cv-grid-wrapper .cv-divider {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -1152,7 +1157,7 @@ html {
   }
 }
 @media (max-width: 768px) {
-  .cv-page .cv-grid-wrapper .cv-divider {
+  .cv-grid-wrapper .cv-divider {
     position: relative;
     left: 0 !important;
     display: block !important;
@@ -1163,41 +1168,43 @@ html {
     transform: none !important;
   }
 }
-.cv-page .cv-section {
+
+.cv-section {
   margin-bottom: 60px;
   text-align: left;
 }
-.cv-page .cv-section h3 {
+.cv-section h3 {
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: 600;
   color: #5A3E7A;
 }
-.cv-page .cv-section .cv-content p {
+.cv-section .cv-content p {
   margin-bottom: 20px;
   font-size: 16px;
   line-height: 1.6;
   color: #2B2B2B;
 }
-.cv-page .cv-section .cv-content p:last-child {
+.cv-section .cv-content p:last-child {
   margin-bottom: 0;
 }
-.cv-page .cv-section .cv-list {
+.cv-section .cv-list {
   padding-left: 20px;
   list-style-type: disc;
 }
-.cv-page .cv-section .cv-list li {
+.cv-section .cv-list li {
   margin-bottom: 10px;
   font-size: 16px;
   color: #2B2B2B;
 }
 @media (max-width: 768px) {
-  .cv-page .cv-section {
+  .cv-section {
     margin-bottom: 40px;
   }
 }
+
 @media (max-width: 768px) {
-  .cv-page .col-md-6.order-2 .cv-section:last-child {
+  .col-md-6.order-2 .cv-section:last-child {
     margin-bottom: 0 !important;
   }
 }/*# sourceMappingURL=style.css.map */

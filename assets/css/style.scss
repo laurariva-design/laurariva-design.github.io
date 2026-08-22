@@ -1301,18 +1301,21 @@ html {
 
 
 // PAGINA CURRICULUM
+// PAGINA CURRICULUM
 .cv-page {
+  padding-top: 80px; /* Garantisce lo stacco dalla navbar anche se questa è in position: fixed/absolute */
   padding-bottom: 0;
 
   .custom-portfolio-container {
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 120px 20px 0 20px; /* <--- Forza 80px di spazio in alto a tutto il contenitore */
+    padding: 0 20px;
   }
 
   .cv-title {
-    margin-top: 0 !important; /* Azzera il margine del titolo per usare solo quello del container */
+    margin-top: 0;
+    margin-bottom: 30px;
     font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
@@ -1323,6 +1326,7 @@ html {
       font-size: 38px;
     }
   }
+}
 
   .cv-cta-container {
     margin: 40px 0 80px;
@@ -1421,4 +1425,3 @@ html {
       }
     }
   }
-}
