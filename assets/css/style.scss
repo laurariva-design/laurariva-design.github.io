@@ -604,58 +604,7 @@ html {
 
 
 
-// SEZIONE 3
-.tools-section {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 0;
-
-  .tools-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1100px;
-    padding: 0 20px;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: $title;
-    margin: 0 0 80px 0;
-  }
-
-  .tools-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
-    width: 100%;
-    flex-wrap: nowrap;
-  }
-
-  .tool-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    flex-shrink: 0;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-  }
-
-  // RESPONSIVE
+// RESPONSIVE
   @media (max-width: 900px) {
     padding: 0;
 
@@ -665,28 +614,27 @@ html {
     }
 
     .tools-row {
+      justify-content: flex-start; /* Permette lo scorrimento dall'inizio */
+      overflow-x: auto; /* Abilita lo scroll orizzontale */
+      flex-wrap: nowrap; /* Impedisce di andare a capo */
+      width: 100%;
+      padding: 10px 20px; /* Un po' di aria ai lati per non tagliare le icone ai bordi */
       gap: 30px;
+      -webkit-overflow-scrolling: touch; /* Rende lo scroll fluido su iOS */
+
+      /* Nasconde la scrollbar antiestetica ma mantiene lo scroll attivo */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
     }
 
     .tool-icon {
-      width: 70px;
-      height: 70px;
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0; /* Impedisce alle icone di rimpicciolirsi o schiacciarsi */
     }
   }
-
-  @media (max-width: 480px) {
-    .tools-row {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-    }
-
-    .tool-icon {
-      width: 50px;
-      height: 50px;
-    }
-  }
-}
 
 
 
