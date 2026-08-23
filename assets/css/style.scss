@@ -610,6 +610,7 @@ html {
   justify-content: center;
   width: 100%;
   padding: 0;
+  overflow: hidden;
 
   .tools-container {
     display: flex;
@@ -646,6 +647,11 @@ html {
     height: 80px;
     flex-shrink: 0;
 
+    /* Nasconde le icone duplicate su Desktop */
+    &:nth-child(n+7) {
+      display: none;
+    }
+
     img {
       width: 100%;
       height: 100%;
@@ -655,8 +661,7 @@ html {
     }
   }
 
-  // RESPONSIVE
- // RESPONSIVE
+  // RESPONSIVE MOBILE - SCORRIMENTO AUTOMATICO
   @media (max-width: 900px) {
     padding: 0;
 
@@ -666,28 +671,38 @@ html {
     }
 
     .tools-row {
-      justify-content: flex-start; /* Permette lo scorrimento dall'inizio */
-      overflow-x: auto; /* Abilita lo scroll orizzontale */
-      flex-wrap: nowrap; /* Impedisce di andare a capo */
-      width: 100%;
-      padding: 10px 20px; /* Un po' di aria ai lati per non tagliare le icone ai bordi */
-      gap: 30px;
-      -webkit-overflow-scrolling: touch; /* Rende lo scroll fluido su iOS */
+      justify-content: flex-start;
+      width: max-content;
+      gap: 40px;
+      animation: autoScrollTools 18s linear infinite;
 
-      /* Nasconde la scrollbar antiestetica ma mantiene lo scroll attivo */
-      scrollbar-width: none; /* Firefox */
-      &::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
+      &:hover {
+        animation-play-state: paused;
       }
     }
 
     .tool-icon {
       width: 60px;
       height: 60px;
-      flex-shrink: 0; /* Impedisce alle icone di rimpicciolirsi o schiacciarsi */
+      flex-shrink: 0;
+
+      /* Mostra nuovamente le icone duplicate su Mobile per creare il loop */
+      &:nth-child(n+7) {
+        display: flex;
+      }
     }
   }
+}
+
+// ANIMAZIONE LOOP MOBILE
+@keyframes autoScrollTools {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(calc(-50% - 20px)); /* Trasla la metà esatta considerando il gap */
+  }
+}
 
 
 
