@@ -998,6 +998,42 @@ html {
 }
 
 
+.skills-carousel {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0 20px 0;
+  -webkit-overflow-scrolling: touch; /* Scroll fluido su Safari / iOS */
+
+  /* Nasconde la brutta barra di scorrimento grigia */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  img {
+    height: 140px; /* Altezza fissa dei badge (regolala in base alle tue immagini) */
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0; /* Impedisce alle immagini di schiacciarsi */
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px); /* Effetto lieve sollevamento all'hover */
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 15px;
+
+    img {
+      height: 110px; /* Un po' più piccoli da mobile per stare bene a schermo */
+    }
+  }
+}
+
 
 
 
