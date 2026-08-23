@@ -998,28 +998,28 @@ html {
 }
 
 
-// CAROSELLO SKILL BADGE
-  .skills-carousel {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    gap: 24px;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto !important;
-    padding: 10px 5px 20px 5px;
-    -webkit-overflow-scrolling: touch;
+// CAROSELLO AUTOMATICO
+.skills-carousel-track {
+  width: 100%;
+  overflow: hidden; /* Taglia le immagini fuori dallo schermo */
+  padding: 10px 0 20px 0;
 
-    /* Nasconde la scrollbar antiestetica */
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
+  .skills-carousel-list {
+    display: flex;
+    gap: 24px;
+    width: max-content; /* Permette alla riga di estendersi all'infinito */
+    animation: autoScroll 35s linear infinite; /* Regola i secondi per velocizzare/rallentare */
+
+    /* Mette in pausa il carosello se l'utente ci passa sopra col mouse */
+    &:hover {
+      animation-play-state: paused;
     }
 
     img {
-      height: 220px; /* Ingrandite le immagini */
+      height: 220px;
       width: auto;
       object-fit: contain;
-      flex-shrink: 0 !important; /* Forza lo scroll impedendo il ridimensionamento */
+      flex-shrink: 0;
       border-radius: 16px;
       transition: transform 0.3s ease;
 
@@ -1028,6 +1028,27 @@ html {
       }
     }
   }
+}
+
+// ANIMAZIONE LOOP INFINITO
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Trasla perfettamente della metà esatta */
+  }
+}
+
+@media (max-width: 900px) {
+  .skills-carousel-track {
+    .skills-carousel-list {
+      img {
+        height: 160px;
+      }
+    }
+  }
+}
   
 
 
