@@ -610,7 +610,6 @@ html {
   justify-content: center;
   width: 100%;
   padding: 0;
-  overflow: hidden;
 
   .tools-container {
     display: flex;
@@ -630,6 +629,11 @@ html {
     margin: 0 0 80px 0;
   }
 
+  .tools-track {
+    width: 100%;
+    overflow: hidden; /* Mantiene il contenuto dentro i margini del container */
+  }
+
   .tools-row {
     display: flex;
     justify-content: center;
@@ -647,7 +651,7 @@ html {
     height: 80px;
     flex-shrink: 0;
 
-    /* Nasconde le icone duplicate su Desktop */
+    /* Nasconde la copia duplicata su Desktop */
     &:nth-child(n+7) {
       display: none;
     }
@@ -661,20 +665,20 @@ html {
     }
   }
 
-  // RESPONSIVE MOBILE - SCORRIMENTO AUTOMATICO
+  // RESPONSIVE MOBILE (Scorrimento identico alle Skill)
   @media (max-width: 900px) {
-    padding: 0;
-
     h2 {
       font-size: 32px;
       margin-bottom: 40px;
     }
 
     .tools-row {
+      display: flex;
       justify-content: flex-start;
-      width: max-content;
       gap: 40px;
-      animation: autoScrollTools 18s linear infinite;
+      width: max-content; /* Permette alla riga di estendersi quanto serve */
+      padding-right: 40px; /* Mantiene il gap costante tra l'ultima icona e la prima del loop */
+      animation: autoScrollTools 12s linear infinite;
 
       &:hover {
         animation-play-state: paused;
@@ -686,7 +690,7 @@ html {
       height: 60px;
       flex-shrink: 0;
 
-      /* Mostra nuovamente le icone duplicate su Mobile per creare il loop */
+      /* Mostra le icone duplicate su Mobile */
       &:nth-child(n+7) {
         display: flex;
       }
@@ -694,13 +698,13 @@ html {
   }
 }
 
-// ANIMAZIONE LOOP MOBILE
+// ANIMAZIONE LOOP
 @keyframes autoScrollTools {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 20px)); /* Trasla la metà esatta considerando il gap */
+    transform: translateX(-50%); /* Calcolo esatto per un loop continuo e senza scatti */
   }
 }
 

@@ -513,7 +513,6 @@ html {
   justify-content: center;
   width: 100%;
   padding: 0;
-  overflow: hidden;
 }
 .tools-section .tools-container {
   display: flex;
@@ -531,6 +530,10 @@ html {
   color: #5A3E7A;
   margin: 0 0 80px 0;
 }
+.tools-section .tools-track {
+  width: 100%;
+  overflow: hidden; /* Mantiene il contenuto dentro i margini del container */
+}
 .tools-section .tools-row {
   display: flex;
   justify-content: center;
@@ -546,7 +549,7 @@ html {
   width: 80px;
   height: 80px;
   flex-shrink: 0;
-  /* Nasconde le icone duplicate su Desktop */
+  /* Nasconde la copia duplicata su Desktop */
 }
 .tools-section .tool-icon:nth-child(n+7) {
   display: none;
@@ -560,19 +563,18 @@ html {
   transition: transform 0.3s ease;
 }
 @media (max-width: 900px) {
-  .tools-section {
-    padding: 0;
-  }
   .tools-section h2 {
     font-size: 32px;
     margin-bottom: 40px;
   }
   .tools-section .tools-row {
+    display: flex;
     justify-content: flex-start;
-    width: -moz-max-content;
-    width: max-content;
     gap: 40px;
-    animation: autoScrollTools 18s linear infinite;
+    width: -moz-max-content;
+    width: max-content; /* Permette alla riga di estendersi quanto serve */
+    padding-right: 40px; /* Mantiene il gap costante tra l'ultima icona e la prima del loop */
+    animation: autoScrollTools 12s linear infinite;
   }
   .tools-section .tools-row:hover {
     animation-play-state: paused;
@@ -581,7 +583,7 @@ html {
     width: 60px;
     height: 60px;
     flex-shrink: 0;
-    /* Mostra nuovamente le icone duplicate su Mobile per creare il loop */
+    /* Mostra le icone duplicate su Mobile */
   }
   .tools-section .tool-icon:nth-child(n+7) {
     display: flex;
@@ -593,7 +595,7 @@ html {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 20px)); /* Trasla la metà esatta considerando il gap */
+    transform: translateX(-50%); /* Calcolo esatto per un loop continuo e senza scatti */
   }
 }
 .main-footer {
