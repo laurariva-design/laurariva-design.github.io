@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   margin: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -835,37 +834,31 @@ html {
 }
 
 .skills-carousel {
-  display: flex;
-  gap: 20px;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 24px;
   width: 100%;
-  overflow-x: auto;
-  padding: 10px 0 20px 0;
-  -webkit-overflow-scrolling: touch; /* Scroll fluido su Safari / iOS */
-  /* Nasconde la brutta barra di scorrimento grigia */
-  scrollbar-width: none; /* Firefox */
+  max-width: 100%;
+  overflow-x: auto !important;
+  padding: 10px 5px 20px 5px;
+  -webkit-overflow-scrolling: touch;
+  /* Nasconde la scrollbar antiestetica */
+  scrollbar-width: none;
 }
 .skills-carousel::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 .skills-carousel img {
-  height: 140px; /* Altezza fissa dei badge (regolala in base alle tue immagini) */
+  height: 220px; /* Ingrandite le immagini */
   width: auto;
   -o-object-fit: contain;
      object-fit: contain;
-  flex-shrink: 0; /* Impedisce alle immagini di schiacciarsi */
-  border-radius: 12px;
+  flex-shrink: 0 !important; /* Forza lo scroll impedendo il ridimensionamento */
+  border-radius: 16px;
   transition: transform 0.3s ease;
 }
 .skills-carousel img:hover {
-  transform: translateY(-4px); /* Effetto lieve sollevamento all'hover */
-}
-@media (max-width: 768px) {
-  .skills-carousel {
-    gap: 15px;
-  }
-  .skills-carousel img {
-    height: 110px; /* Un po' più piccoli da mobile per stare bene a schermo */
-  }
+  transform: translateY(-6px);
 }
 
 .projects-section {
